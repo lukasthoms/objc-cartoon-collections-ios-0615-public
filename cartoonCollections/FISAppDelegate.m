@@ -37,7 +37,7 @@
 
 - (NSMutableString *)rollCallDwarves:(NSArray *)dwarves
 {
-    NSMutableString *rollCall = [[NSMutableString alloc] initWithFormat:@"%i. %@", 1, dwarves[1]];
+    NSMutableString *rollCall = [[NSMutableString alloc] initWithFormat:@"%i. %@", 1, dwarves[0]];
     for (int i = 1; i < dwarves.count; i++) {
             int count = i+1;
             [rollCall appendFormat:@" | %i. %@", count, dwarves[i]];
@@ -47,14 +47,15 @@
 
 
 
-- (NSMutableArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
+- (NSArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
 {
     NSMutableArray *newCalls = [[NSMutableArray alloc] init];
     for (NSString *call in planeteerCalls) {
         NSString *newCall = [[call uppercaseString] stringByAppendingString:@"!"];
         [newCalls addObject:newCall];
         }
-    return newCalls;
+    NSArray *finalCalls = [[NSArray alloc] initWithArray:newCalls];
+    return finalCalls;
 }
 
 
@@ -86,7 +87,7 @@
 {
     NSMutableArray *newReceipts = [[NSMutableArray alloc] init];
     for (NSString *dollars in receipt) {
-        NSMutableString *newReceipt = [[NSMutableString alloc] initWithFormat:@"%lu", [dollars length]];
+        NSString *newReceipt = [[NSString alloc] initWithFormat:@"$%lu", [dollars length]];
         [newReceipts addObject:newReceipt];
     }
     return newReceipts;

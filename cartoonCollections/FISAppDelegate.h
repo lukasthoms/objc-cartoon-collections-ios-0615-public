@@ -13,7 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 -(NSMutableString *)rollCallDwarves:(NSArray *)dwarves;
--(NSMutableArray *)summonCaptainPlanet:(NSArray *)planeteerCalls;
+-(NSArray *)summonCaptainPlanet:(NSArray *)planeteerCalls;
 -(NSMutableArray *)longPlaneteerCalls:(NSArray *)planeteerCalls;
 -(NSString *)findTheCheese:(NSArray *)cheeses;
 -(NSArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt;
