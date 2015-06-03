@@ -35,29 +35,61 @@
     return YES;
 }
 
-- (NSString *)rollCallDwarves:(NSArray *)dwarves
+- (NSMutableString *)rollCallDwarves:(NSArray *)dwarves
 {
-    return nil;
+    NSMutableString *rollCall = [[NSMutableString alloc] initWithFormat:@"%i. %@", 1, dwarves[1]];
+    for (int i = 1; i < dwarves.count; i++) {
+            int count = i+1;
+            [rollCall appendFormat:@" | %i. %@", count, dwarves[i]];
+        }
+    return rollCall;
+    }
+
+
+
+- (NSMutableArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
+{
+    NSMutableArray *newCalls = [[NSMutableArray alloc] init];
+    for (NSString *call in planeteerCalls) {
+        NSString *newCall = [[call uppercaseString] stringByAppendingString:@"!"];
+        [newCalls addObject:newCall];
+        }
+    return newCalls;
 }
 
-- (NSArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
-{
-    return nil;
-}
 
-- (NSArray *)longPlaneteerCalls:(NSArray *)planeteerCalls
+
+- (NSMutableArray *)longPlaneteerCalls:(NSArray *)planeteerCalls
 {
-    return nil;
+    NSMutableArray *longCalls = [[NSMutableArray alloc] init];
+    for (NSString *call in planeteerCalls){
+        if ([call length] >= 5) {
+            [longCalls addObject:call];
+        }
+    }
+    return longCalls;
 }
 
 - (NSString *)findTheCheese:(NSArray *)cheeses
 {
-    return nil;
+    NSString *searchResult = [[NSString alloc] init];
+    for (NSString *cheese in cheeses) {
+        if ([cheese isEqualToString:@"cheddar"] || [cheese isEqualToString:@"gouda"] || [cheese isEqualToString:@"camembert"]) {
+            searchResult = cheese;
+            break;
+        } else searchResult = nil;
+    }
+    return searchResult;
 }
 
-- (NSArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt
+- (NSMutableArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt
 {
-    return nil;
+    NSMutableArray *newReceipts = [[NSMutableArray alloc] init];
+    for (NSString *dollars in receipt) {
+        NSMutableString *newReceipt = [[NSMutableString alloc] initWithFormat:@"%lu", [dollars length]];
+        [newReceipts addObject:newReceipt];
+    }
+    return newReceipts;
 }
 
 
